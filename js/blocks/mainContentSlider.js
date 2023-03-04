@@ -1,7 +1,6 @@
 export default function mainContentSlider() {
-    let currentSlide = 4;
-    // const slidesCount = document.querySelectorAll('.wrapper .content > *').length;
-    const slidesCount = 5;
+    let currentSlide = 1;
+    const slidesCount = document.querySelectorAll('.wrapper .content > *').length;
     const contentBlock = document.querySelector('.content');
     changeContentBlockTranslate(contentBlock, currentSlide)
 
@@ -45,5 +44,24 @@ export default function mainContentSlider() {
             controlLeft.style.opacity = '';
             controlLeft.style.pointerEvents = '';
         }
+    })
+
+    const anchorsToSlides = document.querySelectorAll('[data-to-slide]');
+
+    anchorsToSlides.forEach(anchor => {
+        anchor.addEventListener('click', (e) => {
+            const newSlide = anchor.dataset.toSlide;
+            const deltaOfSlides = currentSlide - +newSlide;
+            if (deltaOfSlides > 0) {
+                for (let i = 1; i <= deltaOfSlides; i++) {
+                    controlLeft.click();
+                }
+            }
+            else {
+                for (let i = 1; i <= -deltaOfSlides; i++) {
+                    controlRight.click();
+                }
+            }
+        })
     })
 }

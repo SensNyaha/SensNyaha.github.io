@@ -12,7 +12,7 @@
 
 <body>
   <header class="header">
-    <a href='#!' class="header__logo">
+    <a class="header__logo" data-to-slide="1">
       <img src="./images/logo.png" alt="Логотипа" class="header__img" />
       sensnyaha
     </a>
@@ -40,7 +40,7 @@
     </ul>
   </header>
   <div class="wrapper">
-    <div class="content" style="transform: translateX(-40%);">
+    <div class="content">
       <div class="main">
         <h1 class="main__title">
           <span>¡привет!</span>
@@ -50,16 +50,16 @@
         <nav class="main__nav">
           <ul class="main__list">
             <li class="main__item">
-              <a href="#!" class="main__anchor">Я такой-то, такой-то</a>
+              <a class="main__anchor" data-to-slide="2">Я такой-то, такой-то</a>
             </li>
             <li class="main__item">
-              <a href="#!" class="main__anchor">Могу в то-то и то-то</a>
+              <a class="main__anchor" data-to-slide="3">Могу в то-то и то-то</a>
             </li>
             <li class="main__item">
-              <a href="#!" class="main__anchor">Уже сделал вот это</a>
+              <a class="main__anchor" data-to-slide="4">Уже сделал вот это</a>
             </li>
             <li class="main__item">
-              <a href="#!" class="main__anchor">Связаться? Конечно</a>
+              <a class="main__anchor" data-to-slide="5">Связаться? Конечно</a>
             </li>
           </ul>
         </nav>
@@ -91,49 +91,49 @@
           <div class="tchngs__item">
             <img src="./images/html.svg" alt="html-icon" class="tchngs__img" data-tchn="HTML">
             <div class="tchngs__item-info">
-              HTML - язык разметки
+              HTML - стандартизированный язык гипертекстовой разметки документов
             </div>
           </div>
           <div class="tchngs__item">
             <img src="./images/css.svg" alt="css-icon" class="tchngs__img" data-tchn="CSS">
             <div class="tchngs__item-info">
-              CSS - язык стилей
+              CSS - формальный язык описания внешнего вида документа
             </div>
           </div>
           <div class="tchngs__item">
             <img src="./images/js.svg" alt="js-icon" class="tchngs__img" data-tchn="JS">
             <div class="tchngs__item-info">
-              JS - язык программирования
+              JS - мультипарадигменный язык программирования
             </div>
           </div>
           <div class="tchngs__item">
             <img src="./images/sass.svg" alt="sass-icon" class="tchngs__img" data-tchn="SASS">
             <div class="tchngs__item-info">
-              SASS - препроцессор CSS
+              SASS - метаязык на основе CSS, предназначенный для увеличения уровня абстракции CSS-кода
             </div>
           </div>
           <div class="tchngs__item">
             <img src="./images/webpack.svg" alt="webpack-icon" class="tchngs__img" data-tchn="WEBPACK">
             <div class="tchngs__item-info">
-              Webpack - сборщик модулей JavaScript
+              Webpack - сборщик модулей JavaScript с открытым исходным кодом
             </div>
           </div>
           <div class="tchngs__item">
             <img src="./images/react.svg" alt="react-icon" class="tchngs__img" data-tchn="REACT">
             <div class="tchngs__item-info">
-              React - библиотека JavaScript
+              React - JavaScript-библиотека для разработки пользовательских интерфейсов
             </div>
           </div>
           <div class="tchngs__item">
             <img src="./images/gh.svg" alt="gh-icon" class="tchngs__img" data-tchn="GH">
             <div class="tchngs__item-info">
-              GitHub - удаленный сервис системы контроля версий
+              GitHub - крупнейший веб-сервис для хостинга IT-проектов и их совместной разработки
             </div>
           </div>
           <div class="tchngs__item">
             <img src="./images/ts.svg" alt="ts-icon" class="tchngs__img" data-tchn="TS">
             <div class="tchngs__item-info">
-              TypeScript - типизированная надстройка над JavaScript
+              TypeScript - типобезопасный ЯП, средство разработки веб-приложений, расширяющее возможности JavaScript
             </div>
           </div>
           <div class="tchngs__item">
@@ -160,6 +160,46 @@
           <img src="./images/chevron-right.svg" alt="Следующий слайд" class="projects-slide__right">
         </div>
       </div>
+      <div class="contactme">
+        <h2 class="contactme__title">
+          Свяжитесь со мной с помощью этой формы
+        </h2>
+        <div class="contactme__content">
+          <form action="" class="contactme__form">
+            <div class="contactme__form-inner">
+              <input name='name' type="text" class="contactme__input contactme__input--sm" placeholder="Как к Вам обращаться?" required  autocomplete="no">
+              <div class="contactme__ways">
+                Как с Вами связаться?
+                <div class="contactme__radios">
+                  <label class="contactme__label contactme__label--chosen">
+                    По электронной почте
+                    <input type="radio" name="way" class="contactme__radio" data-way="email" value="Почта" autocomplete="no">
+                  </label>
+                  <label class="contactme__label">
+                    По телефону
+                    <input type="radio" name="way" class="contactme__radio" data-way="tel"  value="Телефон" autocomplete="no">
+                  </label>
+                  <label class="contactme__label">
+                    Голубиной почтой
+                    <input type="radio" name="way" class="contactme__radio" data-way="address"  value="Голубиная почта" autocomplete="no">
+                  </label>
+                </div>
+                <div class="contactme__contact-ways">
+                  <input type="email" name="email" class="contactme__input contactme__input--sm contactme__ways-input contactme__ways-input--avl" placeholder="Адрес электронного ящика">
+                  <input type="tel" name="tel" class="contactme__input contactme__input--sm contactme__ways-input" placeholder="Номер телефона">
+                  <input type="text" name="address" class="contactme__input contactme__input--sm contactme__ways-input" placeholder="Адрес соседской голубятни">
+                </div>
+              </div>
+              <textarea name="comment" class="contactme__textarea" placeholder="Если хотите оставить дополнительную информацию"></textarea>
+              <input class="contactme__submit" type="submit" value="Отправить">
+            </div>
+
+            <div class="contactme__status">
+              <span></span><span></span><span></span>
+            </div>
+          </form>
+        </div>
+      </div>
     </div>
   </div>
   <div class="controls">
@@ -170,6 +210,12 @@
       <img src="./images/arrow-right.svg" alt="Стрелка вправо" class="controls__button--img">
     </button>
   </div>
+  <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+  <script>
+    (function(){
+      emailjs.init("JKp3Wmqvx-xK_iou0");
+   })();
+  </script>
   <script src="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.js"></script>
   <script type="module" src="js/main.min.js"></script>
 </body>
