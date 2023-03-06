@@ -186,14 +186,21 @@ export default function technologies() {
 
     let currentOpenedDiv, prevOpenedDiv, prevDivTop, prevDivLeft, infoShowTimer;
 
-    function changeInfoBlocksPos(techDivs) {
+    function changeInfoBlocksPos(techDivs, isResize) {
         techDivs.forEach(div => {
             const infoElem = div.querySelector('.tchngs__item-info') ;
+
+            if (isResize) {
+                infoElem.style.height = '';
+                infoElem.style.width = '';
+                infoElem.style.transition = 'all 0s';
+            }
+            
             const rects = infoElem.getBoundingClientRect();
             if (!rects.width && !rects.height) {
                 rects = window.getComputedStyle(infoElem)
             }
-    
+            
             if (rects.width > rects.height) {
                 infoElem.style.height = rects.width + 'px';
                 infoElem.style.width = rects.width + 'px';
@@ -202,6 +209,10 @@ export default function technologies() {
                 infoElem.style.width = rects.height + 'px'
                 infoElem.style.height = rects.height + 'px';
             }
+
+            if (isResize || infoElem.style.transition === '') {
+                infoElem.style.transition = 'all 0.3s';
+            }
             
             const deltaDest = Math.sqrt(2 * ((infoElem.offsetWidth/2) ** 2)) - infoElem.offsetWidth/2 + Math.sqrt(2 * ((div.offsetWidth/2) ** 2)) - div.offsetWidth/2;
     
@@ -209,9 +220,10 @@ export default function technologies() {
             infoElem.style.top = -parseFloat(infoElem.style.height) + deltaDest + 'px';
         })
     }
+
     changeInfoBlocksPos(techDivs)
     window.addEventListener('resize', () => {
-        changeInfoBlocksPos(techDivs)
+        changeInfoBlocksPos(techDivs, true)
     })
 
     techDivs.forEach(div => {           
