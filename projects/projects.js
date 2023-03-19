@@ -43,6 +43,10 @@ export default function () {
         actionReact: {
             path: 'https://sensnyaha.github.io/react-action-proj',
             previewImage: '/projects/react-action.jpg'
+        },
+        translator: {
+            path: 'https://sensnyaha.github.io/react-translate',
+            previewImage: '/projects/translator.jpg'
         }
     }
 }
